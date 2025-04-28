@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    #jokeBox {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+      font-size: 1.2em;
+      transition: transform 0.3s ease;
+    }
+    #jokeBox:hover {
+      transform: scale(1.05);
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff7e5f;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #feb47b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>😂 Random Joke Generator 😂</h1>
+  <div id="jokeBox">Click the button to get a joke!</div>
+  <button onclick="generateJoke()">Tell me a joke!</button>
+
+  <script>
+    const jokes = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "Why don't skeletons fight each other? They don't have the guts!",
+      "What do you call cheese that isn't yours? Nacho cheese!",
+      "Why can't you hear a pterodactyl in the bathroom? Because the 'P' is silent!",
+      "What do you call a pile of cats? A meowtain.",
+      "Why did the tomato turn red? Because it saw the salad dressing.",
+      "What do you call a fake noodle? An impasta.",
+      "Why did the golfer bring two pairs of pants? In case he got a hole in one.",
+      "What do you call a bear with no teeth? A gummy bear.",
+      "Why did the math book look sad? Because it had too many problems.",
+      "What do you call a belt made out of watches? A waist of time.",
+      "Why did the bicycle fall over? Because it was two tired.",
+      "What do you call a cow with no legs? Ground beef.",
+      "Why did the coffee file a police report? It got mugged.",
+      "What do you call a factory that makes okay products? A satisfactory."
+    ];
+
+    function generateJoke() {
+      // Check if "anonymous" (we fake it here since it's a local site)
+      const isAnonymous = false; // Set to true if you want to simulate anonymous rejection
+      if (isAnonymous) {
+        alert("Anonymous users are not allowed to generate jokes!");
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      const joke = jokes[randomIndex];
+
+      const jokeBox = document.getElementById('jokeBox');
+      jokeBox.style.opacity = 0;
+
+      setTimeout(() => {
+        jokeBox.textContent = joke;
+        jokeBox.style.opacity = 1;
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
